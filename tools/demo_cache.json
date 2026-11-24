@@ -1,0 +1,885 @@
+{
+  "schema": "kaiyuan-gas-cache/1",
+  "source": "kaiyuan-gas-ha",
+  "cons_no": "0000000000",
+  "customer_name": "示例用户",
+  "address": "示例小区 1 栋 101",
+  "meter_no": "000000000000",
+  "unit_price": 2.196,
+  "garbage_fee": 8.0,
+  "settle_way": "支付宝代扣",
+  "read_way": "远程",
+  "balance": 0.0,
+  "arrearage": null,
+  "last_payment": {
+    "date": "2026-10-01",
+    "at": "2026-10-01 00:59:41",
+    "gas": 45.99,
+    "garbage": 8.0,
+    "penalty": 0.0,
+    "total": 53.99,
+    "settle_way": "支付宝代扣"
+  },
+  "billList": [
+    {
+      "month": "2026-09",
+      "prev_reading": 479.0,
+      "reading": 500.0,
+      "usage": 21.0,
+      "fee": 45.99,
+      "total_fee": 45.99,
+      "garbage_fee": 8.0,
+      "penalty": 0.0,
+      "status": "已缴费",
+      "settled": true,
+      "bill_period": "2026-08-24 至 2026-09-24",
+      "bill_days": 31.0,
+      "read_date": "2026-09-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 45.99,
+          "price": 2.196,
+          "usage": 21.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2026-08",
+      "prev_reading": 500.0,
+      "reading": 506.0,
+      "usage": 6.0,
+      "fee": 13.14,
+      "total_fee": 13.14,
+      "status": "已缴费",
+      "bill_period": "2026-07-24 至 2026-08-24",
+      "read_date": "2026-08-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 13.14,
+          "price": 2.196,
+          "usage": 6.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2026-07",
+      "prev_reading": 506.0,
+      "reading": 514.0,
+      "usage": 8.0,
+      "fee": 17.52,
+      "total_fee": 17.52,
+      "status": "已缴费",
+      "bill_period": "2026-06-24 至 2026-07-24",
+      "read_date": "2026-07-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 17.52,
+          "price": 2.196,
+          "usage": 8.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2026-06",
+      "prev_reading": 514.0,
+      "reading": 525.0,
+      "usage": 11.0,
+      "fee": 24.09,
+      "total_fee": 24.09,
+      "status": "已缴费",
+      "bill_period": "2026-05-24 至 2026-06-24",
+      "read_date": "2026-06-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 24.09,
+          "price": 2.196,
+          "usage": 11.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2026-05",
+      "prev_reading": 525.0,
+      "reading": 540.0,
+      "usage": 15.0,
+      "fee": 32.85,
+      "total_fee": 32.85,
+      "status": "已缴费",
+      "bill_period": "2026-04-24 至 2026-05-24",
+      "read_date": "2026-05-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 32.85,
+          "price": 2.196,
+          "usage": 15.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2026-04",
+      "prev_reading": 540.0,
+      "reading": 558.0,
+      "usage": 18.0,
+      "fee": 39.42,
+      "total_fee": 39.42,
+      "status": "已缴费",
+      "bill_period": "2026-03-24 至 2026-04-24",
+      "read_date": "2026-04-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 39.42,
+          "price": 2.196,
+          "usage": 18.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2026-03",
+      "prev_reading": 558.0,
+      "reading": 578.0,
+      "usage": 20.0,
+      "fee": 43.8,
+      "total_fee": 43.8,
+      "status": "已缴费",
+      "bill_period": "2026-02-24 至 2026-03-24",
+      "read_date": "2026-03-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 43.8,
+          "price": 2.196,
+          "usage": 20.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2026-02",
+      "prev_reading": 578.0,
+      "reading": 602.0,
+      "usage": 24.0,
+      "fee": 52.56,
+      "total_fee": 52.56,
+      "status": "已缴费",
+      "bill_period": "2026-01-24 至 2026-02-24",
+      "read_date": "2026-02-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 52.56,
+          "price": 2.196,
+          "usage": 24.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2026-01",
+      "prev_reading": 602.0,
+      "reading": 629.0,
+      "usage": 27.0,
+      "fee": 59.13,
+      "total_fee": 59.13,
+      "status": "已缴费",
+      "bill_period": "2025-12-24 至 2026-01-24",
+      "read_date": "2026-01-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 59.13,
+          "price": 2.196,
+          "usage": 27.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-12",
+      "prev_reading": 629.0,
+      "reading": 651.0,
+      "usage": 22.0,
+      "fee": 48.18,
+      "total_fee": 48.18,
+      "status": "已缴费",
+      "bill_period": "2025-11-24 至 2025-12-24",
+      "read_date": "2025-12-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 48.18,
+          "price": 2.196,
+          "usage": 22.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-11",
+      "prev_reading": 651.0,
+      "reading": 668.0,
+      "usage": 17.0,
+      "fee": 37.23,
+      "total_fee": 37.23,
+      "status": "已缴费",
+      "bill_period": "2025-10-24 至 2025-11-24",
+      "read_date": "2025-11-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 37.23,
+          "price": 2.196,
+          "usage": 17.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-10",
+      "prev_reading": 668.0,
+      "reading": 677.0,
+      "usage": 9.0,
+      "fee": 19.71,
+      "total_fee": 19.71,
+      "status": "已缴费",
+      "bill_period": "2025-09-24 至 2025-10-24",
+      "read_date": "2025-10-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 19.71,
+          "price": 2.196,
+          "usage": 9.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-09",
+      "prev_reading": 677.0,
+      "reading": 683.0,
+      "usage": 6.0,
+      "fee": 13.14,
+      "total_fee": 13.14,
+      "status": "已缴费",
+      "bill_period": "2025-08-24 至 2025-09-24",
+      "read_date": "2025-09-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 13.14,
+          "price": 2.196,
+          "usage": 6.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-08",
+      "prev_reading": 683.0,
+      "reading": 688.0,
+      "usage": 5.0,
+      "fee": 10.95,
+      "total_fee": 10.95,
+      "status": "已缴费",
+      "bill_period": "2025-07-24 至 2025-08-24",
+      "read_date": "2025-08-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 10.95,
+          "price": 2.196,
+          "usage": 5.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-07",
+      "prev_reading": 688.0,
+      "reading": 696.0,
+      "usage": 8.0,
+      "fee": 17.52,
+      "total_fee": 17.52,
+      "status": "已缴费",
+      "bill_period": "2025-06-24 至 2025-07-24",
+      "read_date": "2025-07-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 17.52,
+          "price": 2.196,
+          "usage": 8.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-06",
+      "prev_reading": 696.0,
+      "reading": 708.0,
+      "usage": 12.0,
+      "fee": 26.28,
+      "total_fee": 26.28,
+      "status": "已缴费",
+      "bill_period": "2025-05-24 至 2025-06-24",
+      "read_date": "2025-06-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 26.28,
+          "price": 2.196,
+          "usage": 12.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-05",
+      "prev_reading": 708.0,
+      "reading": 722.0,
+      "usage": 14.0,
+      "fee": 30.66,
+      "total_fee": 30.66,
+      "status": "已缴费",
+      "bill_period": "2025-04-24 至 2025-05-24",
+      "read_date": "2025-05-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 30.66,
+          "price": 2.196,
+          "usage": 14.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-04",
+      "prev_reading": 722.0,
+      "reading": 738.0,
+      "usage": 16.0,
+      "fee": 35.04,
+      "total_fee": 35.04,
+      "status": "已缴费",
+      "bill_period": "2025-03-24 至 2025-04-24",
+      "read_date": "2025-04-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 35.04,
+          "price": 2.196,
+          "usage": 16.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-03",
+      "prev_reading": 738.0,
+      "reading": 757.0,
+      "usage": 19.0,
+      "fee": 41.61,
+      "total_fee": 41.61,
+      "status": "已缴费",
+      "bill_period": "2025-02-24 至 2025-03-24",
+      "read_date": "2025-03-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 41.61,
+          "price": 2.196,
+          "usage": 19.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-02",
+      "prev_reading": 757.0,
+      "reading": 780.0,
+      "usage": 23.0,
+      "fee": 50.37,
+      "total_fee": 50.37,
+      "status": "已缴费",
+      "bill_period": "2025-01-24 至 2025-02-24",
+      "read_date": "2025-02-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 50.37,
+          "price": 2.196,
+          "usage": 23.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2025-01",
+      "prev_reading": 780.0,
+      "reading": 806.0,
+      "usage": 26.0,
+      "fee": 56.94,
+      "total_fee": 56.94,
+      "status": "已缴费",
+      "bill_period": "2024-12-24 至 2025-01-24",
+      "read_date": "2025-01-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 56.94,
+          "price": 2.196,
+          "usage": 26.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2024-12",
+      "prev_reading": 806.0,
+      "reading": 827.0,
+      "usage": 21.0,
+      "fee": 45.99,
+      "total_fee": 45.99,
+      "status": "已缴费",
+      "bill_period": "2024-11-24 至 2024-12-24",
+      "read_date": "2024-12-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 45.99,
+          "price": 2.196,
+          "usage": 21.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2024-11",
+      "prev_reading": 827.0,
+      "reading": 842.0,
+      "usage": 15.0,
+      "fee": 32.85,
+      "total_fee": 32.85,
+      "status": "已缴费",
+      "bill_period": "2024-10-24 至 2024-11-24",
+      "read_date": "2024-11-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 32.85,
+          "price": 2.196,
+          "usage": 15.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    },
+    {
+      "month": "2024-10",
+      "prev_reading": 842.0,
+      "reading": 852.0,
+      "usage": 10.0,
+      "fee": 21.9,
+      "total_fee": 21.9,
+      "status": "已缴费",
+      "read_date": "2024-10-24",
+      "read_way": "远程",
+      "items": [
+        {
+          "item": "燃气费",
+          "name": "",
+          "money": 21.9,
+          "price": 2.196,
+          "usage": 10.0,
+          "ladder": "第一档"
+        }
+      ],
+      "source_updated_at": "2026-11-03 10:39:32",
+      "estimated": false
+    }
+  ],
+  "rechargeList": [
+    {
+      "date": "2026-10-01",
+      "gas": 45.99,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 53.99,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-10-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2026-09-01",
+      "gas": 13.14,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 21.14,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-09-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2026-08-01",
+      "gas": 17.52,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 25.52,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-08-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2026-07-01",
+      "gas": 24.09,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 32.09,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-07-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2026-06-01",
+      "gas": 32.85,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 40.85,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-06-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2026-05-01",
+      "gas": 39.42,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 47.42,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-05-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2026-04-01",
+      "gas": 43.8,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 51.8,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-04-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2026-03-01",
+      "gas": 52.56,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 60.56,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-03-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2026-02-01",
+      "gas": 59.13,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 67.13,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-02-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2026-01-01",
+      "gas": 48.18,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 56.18,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2026-01-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-12-01",
+      "gas": 37.23,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 45.23,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-12-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-11-01",
+      "gas": 19.71,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 27.71,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-11-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-10-01",
+      "gas": 13.14,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 21.14,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-10-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-09-01",
+      "gas": 10.95,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 18.95,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-09-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-08-01",
+      "gas": 17.52,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 25.52,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-08-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-07-01",
+      "gas": 26.28,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 34.28,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-07-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-06-01",
+      "gas": 30.66,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 38.66,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-06-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-05-01",
+      "gas": 35.04,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 43.04,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-05-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-04-01",
+      "gas": 41.61,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 49.61,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-04-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-03-01",
+      "gas": 50.37,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 58.37,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-03-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-02-01",
+      "gas": 56.94,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 64.94,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-02-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2025-01-01",
+      "gas": 45.99,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 53.99,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2025-01-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2024-12-01",
+      "gas": 32.85,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 40.85,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2024-12-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    },
+    {
+      "date": "2024-11-01",
+      "gas": 21.9,
+      "garbage": 8.0,
+      "penalty": 0.0,
+      "total": 29.9,
+      "settle_way": "支付宝代扣",
+      "channel": "第三方",
+      "at": "2024-11-01 00:59:41",
+      "source_updated_at": "2026-11-03 10:39:32"
+    }
+  ],
+  "statistics": {
+    "bill_count": 24,
+    "recharge_count": 24,
+    "total_usage": 373.0,
+    "total_cost": 816.87,
+    "total_paid": 1008.87,
+    "year": "2026",
+    "year_bill_count": 9,
+    "year_usage": 150.0,
+    "year_cost": 328.5,
+    "first_month": "2024-10",
+    "last_month": "2026-09"
+  },
+  "updated_at": "2026-11-03 10:39:32",
+  "cache_updated_at": null
+}

@@ -1,0 +1,124 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "登录凯源燃气温馨网厅",
+        "description": "使用微网厅的手机号与密码登录（无需验证码），户号会自动识别。{error}\n\n下面的阶梯气价用于首页「阶梯用量」，接口不返回这个标准，默认值是重庆中心城区居民生活用气标准，可按当地实际改。",
+        "data": {
+          "mobile": "手机号",
+          "password": "密码",
+          "ladder1_limit": "第一档上限（m³/年）",
+          "ladder2_limit": "第二档上限（m³/年）",
+          "price1": "第一档气价（元/m³）",
+          "price2": "第二档气价（元/m³）",
+          "price3": "第三档气价（元/m³）"
+        }
+      },
+      "locked": {
+        "title": "⚠️ 账号已被临时锁定",
+        "description": "**凯源燃气服务器返回：**\n\n> {message}\n\n手机号 **{mobile}** 因连续密码错误触发了临时锁定，通常需等待约 **24 小时**自动解除。锁定期内无法提前解锁，每次尝试登录都会继续失败，也不会缩短等待时间，请不要反复重试。\n\n这与 Home Assistant 和本集成无关——网络和接口都是通的，只是账号被限制登录。\n\n解锁后请用正确密码重新提交。"
+      },
+      "reconfigure": {
+        "title": "重新配置凯源燃气",
+        "description": "当前账号：**{mobile}**，当前户号：**{cons_no}**。\n\n改完会先登录验证一遍再保存；密码留空表示不修改，户号留空表示继续自动识别。\n\n想再加一个账号，直接在「添加集成」里再选一次凯源燃气即可，每个账号一条条目。",
+        "data": {
+          "mobile": "手机号",
+          "password": "密码（留空不修改）",
+          "cons_no": "户号（留空自动识别）",
+          "refresh_hours": "自动刷新间隔（小时，12-48）",
+          "ladder1_limit": "第一档上限（m³/年）",
+          "ladder2_limit": "第二档上限（m³/年）",
+          "price1": "第一档气价（元/m³）",
+          "price2": "第二档气价（元/m³）",
+          "price3": "第三档气价（元/m³）"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "手机号或密码错误",
+      "account_locked": "账号已被临时锁定，请等待解锁后再试",
+      "cannot_connect": "无法连接凯源燃气服务器（网络不通或接口异常）",
+      "api_error": "服务器返回业务错误，详情见上方说明",
+      "unknown": "未知错误，请查看 Home Assistant 日志"
+    },
+    "abort": {
+      "already_configured": "该手机号已添加过，请直接「重新配置」那一条，或换一个账号",
+      "account_locked": "账号 {mobile} 已被临时锁定，请 24 小时后再添加",
+      "reconfigure_successful": "凯源燃气配置已更新，正在重新加载",
+      "unknown": "没有找到要修改的条目，请刷新页面后重试"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "重新配置凯源燃气",
+        "description": "修改登录账号、密码、自动刷新间隔或阶梯气价。当前户号：{cons_no}。账号或密码留空表示不修改；修改后会先验证再保存。",
+        "data": {
+          "mobile": "账号（留空不修改）",
+          "password": "密码（留空不修改）",
+          "refresh_hours": "自动刷新间隔（小时，12-48）",
+          "ladder1_limit": "第一档上限（m³/年）",
+          "ladder2_limit": "第二档上限（m³/年）",
+          "price1": "第一档气价（元/m³）",
+          "price2": "第二档气价（元/m³）",
+          "price3": "第三档气价（元/m³）"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "手机号或密码错误，未保存新凭据",
+      "account_locked": "账号已被临时锁定，请等待解锁后再修改",
+      "cannot_connect": "无法连接凯源燃气服务器，未保存新凭据",
+      "api_error": "服务器返回业务错误，未保存新凭据"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "account": {
+        "name": "户号"
+      },
+      "prev_reading": {
+        "name": "上期读数"
+      },
+      "reading": {
+        "name": "最新读数"
+      },
+      "usage": {
+        "name": "本期气量"
+      },
+      "arrearage": {
+        "name": "本期气费"
+      },
+      "cumulative_fee": {
+        "name": "全部累计费用"
+      },
+      "cumulative_fee_year": {
+        "name": "本年累计费用"
+      },
+      "cumulative_usage_year": {
+        "name": "本年累计用量"
+      },
+      "bill_month": {
+        "name": "账单月份"
+      },
+      "pay_status": {
+        "name": "缴费情况"
+      },
+      "last_payment": {
+        "name": "最近缴费金额"
+      },
+      "last_payment_date": {
+        "name": "最近缴费时间"
+      },
+      "data_source": {
+        "name": "数据来源"
+      },
+      "login_status": {
+        "name": "登录状态"
+      },
+      "last_refresh": {
+        "name": "最新刷新时间"
+      }
+    }
+  }
+}

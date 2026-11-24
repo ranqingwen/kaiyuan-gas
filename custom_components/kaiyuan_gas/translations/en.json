@@ -1,0 +1,124 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Kaiyuan Gas Login",
+        "description": "Log in with the mobile number and password used in the WeChat H5 portal. The account number is detected automatically. {error}\n\nThe tiered gas prices below feed the ladder block on the card. The API does not return them; defaults are the Chongqing urban residential standard — adjust to your area.",
+        "data": {
+          "mobile": "Mobile number",
+          "password": "Password",
+          "ladder1_limit": "Tier 1 upper limit (m³/year)",
+          "ladder2_limit": "Tier 2 upper limit (m³/year)",
+          "price1": "Tier 1 price (CNY/m³)",
+          "price2": "Tier 2 price (CNY/m³)",
+          "price3": "Tier 3 price (CNY/m³)"
+        }
+      },
+      "locked": {
+        "title": "⚠️ Account temporarily locked",
+        "description": "**Server response:**\n\n> {message}\n\nMobile number **{mobile}** was temporarily locked after too many wrong passwords. It normally clears after about **24 hours**. There is no way to lift the lock early, and every login attempt during the lock keeps failing without shortening the wait, so please do not retry repeatedly.\n\nThis is not a Home Assistant or integration failure — the connection itself works, the account is simply blocked from logging in.\n\nPlease retry with the correct password after the lock is lifted."
+      },
+      "reconfigure": {
+        "title": "Reconfigure Kaiyuan Gas",
+        "description": "Current account: **{mobile}**, current account number: **{cons_no}**.\n\nChanges are verified by logging in before saving. Leave the password blank to keep it, and leave the account number blank to keep auto-detection.\n\nTo add another account, just add the Kaiyuan Gas integration again — one entry per account.",
+        "data": {
+          "mobile": "Mobile number",
+          "password": "Password (leave blank to keep)",
+          "cons_no": "Account number (blank = auto detect)",
+          "refresh_hours": "Auto refresh interval (hours, 12-48)",
+          "ladder1_limit": "Tier 1 upper limit (m³/year)",
+          "ladder2_limit": "Tier 2 upper limit (m³/year)",
+          "price1": "Tier 1 price (CNY/m³)",
+          "price2": "Tier 2 price (CNY/m³)",
+          "price3": "Tier 3 price (CNY/m³)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid mobile number or password",
+      "account_locked": "Account temporarily locked, please retry later",
+      "cannot_connect": "Unable to reach the Kaiyuan Gas server",
+      "api_error": "The server returned a business error, see the message above",
+      "unknown": "Unexpected error, check the logs"
+    },
+    "abort": {
+      "already_configured": "This mobile number is already configured — reconfigure that entry instead, or use another account",
+      "account_locked": "Account {mobile} is temporarily locked, please try again in 24 hours",
+      "reconfigure_successful": "Configuration updated, reloading",
+      "unknown": "The entry to reconfigure was not found, refresh the page and retry"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Reconfigure Kaiyuan Gas",
+        "description": "Change the account, password, auto refresh interval or tiered prices. Account number: {cons_no}. Leave the fields blank to keep the current credentials; changes are verified before saving.",
+        "data": {
+          "mobile": "Account (leave blank to keep)",
+          "password": "Password (leave blank to keep)",
+          "refresh_hours": "Auto refresh interval (hours, 12-48)",
+          "ladder1_limit": "Tier 1 upper limit (m³/year)",
+          "ladder2_limit": "Tier 2 upper limit (m³/year)",
+          "price1": "Tier 1 price (CNY/m³)",
+          "price2": "Tier 2 price (CNY/m³)",
+          "price3": "Tier 3 price (CNY/m³)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid credentials, nothing was saved",
+      "account_locked": "Account temporarily locked, retry later",
+      "cannot_connect": "Unable to reach the server, nothing was saved",
+      "api_error": "The server returned a business error, nothing was saved"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "account": {
+        "name": "Account No."
+      },
+      "prev_reading": {
+        "name": "Previous reading"
+      },
+      "reading": {
+        "name": "Latest reading"
+      },
+      "usage": {
+        "name": "Current usage"
+      },
+      "arrearage": {
+        "name": "Current gas fee"
+      },
+      "cumulative_fee": {
+        "name": "Total cost (all periods)"
+      },
+      "cumulative_fee_year": {
+        "name": "Total cost (this year)"
+      },
+      "cumulative_usage_year": {
+        "name": "Cumulative usage (this year)"
+      },
+      "bill_month": {
+        "name": "Bill month"
+      },
+      "pay_status": {
+        "name": "Payment status"
+      },
+      "last_payment": {
+        "name": "Last payment"
+      },
+      "last_payment_date": {
+        "name": "Last payment date"
+      },
+      "data_source": {
+        "name": "Data source"
+      },
+      "login_status": {
+        "name": "Login status"
+      },
+      "last_refresh": {
+        "name": "Last refresh"
+      }
+    }
+  }
+}

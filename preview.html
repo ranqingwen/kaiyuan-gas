@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>凯源燃气卡片预览</title>
+<style>
+  :root {
+    --card-background-color: #ffffff;
+    --ha-card-background: #ffffff;
+    --primary-text-color: #1b1d21;
+    --secondary-text-color: #7c828b;
+    --divider-color: rgba(0,0,0,.08);
+    --secondary-background-color: #f2f3f5;
+    --ha-card-border-radius: 18px;
+  }
+  body.dark {
+    --card-background-color: #1c1d21;
+    --ha-card-background: #232529;
+    --primary-text-color: #f2f4f8;
+    --secondary-text-color: #9aa1ab;
+    --divider-color: rgba(255,255,255,.10);
+    --secondary-background-color: #2c2f34;
+  }
+  body {
+    margin: 0; min-height: 100vh;
+    background: var(--secondary-background-color);
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+    padding: 36px 20px 60px; box-sizing: border-box;
+    color: var(--primary-text-color);
+  }
+  .toolbar { display: flex; gap: 10px; align-items: center; font-size: 13px; opacity: .85; }
+  .toolbar button {
+    border: 1px solid var(--divider-color); background: var(--ha-card-background);
+    color: inherit; padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: 13px;
+  }
+  .frame { width: 100%; max-width: 420px; }
+  .caption { font-size: 12px; text-align: center; opacity: .6; margin-top: 6px; }
+  /* 截图模式: ?plain=1 去掉工具栏与页边距，整页只留卡片 */
+  body.plain { display: block; padding: 10px 0; gap: 0; }
+  body.plain .toolbar, body.plain .caption, body.plain #tip { display: none !important; }
+  body.plain .frame { max-width: 420px; margin: 0 auto; }
+</style>
+</head>
+<body>
+  <div class="toolbar">
+    <button id="theme">切换深色 / 浅色</button>
+    <span>Home Assistant 卡片预览（模拟数据）</span>
+  </div>
+
+  <div class="frame">
+    <kaiyuan-gas-card id="card"></kaiyuan-gas-card>
+    <div class="caption">实际数据来自集成的「累计用量」传感器，样式随 HA 主题自动适配</div>
+    <div class="caption" id="tip" hidden style="opacity:.9">
+      卡片脚本没能加载：本页需要联网从 CDN 取 lit（或已安装 Home Assistant 时走内置 lit）。
+    </div>
+  </div>
+
+<script type="module">
+  // 预览环境无 HA 内置 lit, 走 CDN 兜底 (与卡片内的兜底逻辑一致)
+  const states = {
+    "sensor.kaiyuan_records": {
+      entity_id: "sensor.kaiyuan_records", state: "6",
+      last_updated: new Date().toISOString(),
+      attributes: {
+        // DEMO_ATTRS_START 由 tools/build_preview.py 生成，请勿手工修改
+          "cons_no": "0000000000",
+          "customer_name": "示例用户",
+          "address": "示例小区 1 栋 101",
+          "meter_no": "000000000000",
+          "balance": 0.0,
+          "arrearage": null,
+          "bill_month": "2026-09",
+          "pay_status": "已缴费",
+          "estimated": false,
+          "reading": 500.0,
+          "prev_reading": 479.0,
+          "usage": 21.0,
+          "reading_date": "2026-09-24",
+          "read_way": "远程",
+          "bill_period": "2026-08-24 至 2026-09-24",
+          "bill_days": 31.0,
+          "fee": 45.99,
+          "penalty": 0.0,
+          "penalty_start": null,
+          "settled": true,
+          "receivable": 45.99,
+          "received": 45.99,
+          "total_fee": 45.99,
+          "last_payment_amount": 53.99,
+          "last_payment_date": "2026-10-01",
+          "last_payment_at": "2026-10-01 00:59:41",
+          "last_payment_gas": 45.99,
+          "last_payment_garbage": 8.0,
+          "last_payment_penalty": 0.0,
+          "settle_way": "支付宝代扣",
+          "unit_price": 2.196,
+          "garbage_fee": 8.0,
+          "bill_count": 24,
+          "unpaid_count": 0,
+          "cumulative_usage": 373.0,
+          "cumulative_fee": 816.87,
+          "cumulative_paid": 1008.87,
+          "year": "2026",
+          "year_bill_count": 9,
+          "cumulative_usage_year": 150.0,
+          "cumulative_fee_year": 328.5,
+          "tier_usage": 150.0,
+          "now_ladder": 1,
+          "ladder": {
+            "year": "2026",
+            "used": 150.0,
+            "tier": 1,
+            "tier_name": "第一档",
+            "limit": 500.0,
+            "remaining": 350.0,
+            "max": 660.0,
+            "unit": "m³",
+            "tiers": [
+              {
+                "name": "第一档",
+                "from": 0,
+                "to": 500.0,
+                "price": 2.196
+              },
+              {
+                "name": "第二档",
+                "from": 500.0,
+                "to": 660.0,
+                "price": 2.366
+              },
+              {
+                "name": "第三档",
+                "from": 660.0,
+                "to": null,
+                "price": 2.716
+              }
+            ]
+          },
+          "statistics": {
+            "bill_count": 24,
+            "recharge_count": 24,
+            "total_usage": 373.0,
+            "total_cost": 816.87,
+            "total_paid": 1008.87,
+            "year": "2026",
+            "year_bill_count": 9,
+            "year_usage": 150.0,
+            "year_cost": 328.5,
+            "first_month": "2024-10",
+            "last_month": "2026-09"
+          },
+          "usage_list": [
+            {
+              "month": "2026-09",
+              "prev_reading": 479.0,
+              "reading": 500.0,
+              "usage": 21.0,
+              "fee": 45.99,
+              "total_fee": 45.99,
+              "garbage_fee": 8.0,
+              "penalty": 0.0,
+              "status": "已缴费",
+              "bill_period": "2026-08-24 至 2026-09-24",
+              "read_date": "2026-09-24",
+              "read_way": "远程",
+              "settled": true,
+              "estimated": false
+            },
+            {
+              "month": "2026-08",
+              "prev_reading": 500.0,
+              "reading": 506.0,
+              "usage": 6.0,
+              "fee": 13.14,
+              "total_fee": 13.14,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2026-07-24 至 2026-08-24",
+              "read_date": "2026-08-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2026-07",
+              "prev_reading": 506.0,
+              "reading": 514.0,
+              "usage": 8.0,
+              "fee": 17.52,
+              "total_fee": 17.52,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2026-06-24 至 2026-07-24",
+              "read_date": "2026-07-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2026-06",
+              "prev_reading": 514.0,
+              "reading": 525.0,
+              "usage": 11.0,
+              "fee": 24.09,
+              "total_fee": 24.09,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2026-05-24 至 2026-06-24",
+              "read_date": "2026-06-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2026-05",
+              "prev_reading": 525.0,
+              "reading": 540.0,
+              "usage": 15.0,
+              "fee": 32.85,
+              "total_fee": 32.85,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2026-04-24 至 2026-05-24",
+              "read_date": "2026-05-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2026-04",
+              "prev_reading": 540.0,
+              "reading": 558.0,
+              "usage": 18.0,
+              "fee": 39.42,
+              "total_fee": 39.42,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2026-03-24 至 2026-04-24",
+              "read_date": "2026-04-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2026-03",
+              "prev_reading": 558.0,
+              "reading": 578.0,
+              "usage": 20.0,
+              "fee": 43.8,
+              "total_fee": 43.8,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2026-02-24 至 2026-03-24",
+              "read_date": "2026-03-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2026-02",
+              "prev_reading": 578.0,
+              "reading": 602.0,
+              "usage": 24.0,
+              "fee": 52.56,
+              "total_fee": 52.56,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2026-01-24 至 2026-02-24",
+              "read_date": "2026-02-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2026-01",
+              "prev_reading": 602.0,
+              "reading": 629.0,
+              "usage": 27.0,
+              "fee": 59.13,
+              "total_fee": 59.13,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-12-24 至 2026-01-24",
+              "read_date": "2026-01-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-12",
+              "prev_reading": 629.0,
+              "reading": 651.0,
+              "usage": 22.0,
+              "fee": 48.18,
+              "total_fee": 48.18,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-11-24 至 2025-12-24",
+              "read_date": "2025-12-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-11",
+              "prev_reading": 651.0,
+              "reading": 668.0,
+              "usage": 17.0,
+              "fee": 37.23,
+              "total_fee": 37.23,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-10-24 至 2025-11-24",
+              "read_date": "2025-11-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-10",
+              "prev_reading": 668.0,
+              "reading": 677.0,
+              "usage": 9.0,
+              "fee": 19.71,
+              "total_fee": 19.71,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-09-24 至 2025-10-24",
+              "read_date": "2025-10-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-09",
+              "prev_reading": 677.0,
+              "reading": 683.0,
+              "usage": 6.0,
+              "fee": 13.14,
+              "total_fee": 13.14,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-08-24 至 2025-09-24",
+              "read_date": "2025-09-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-08",
+              "prev_reading": 683.0,
+              "reading": 688.0,
+              "usage": 5.0,
+              "fee": 10.95,
+              "total_fee": 10.95,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-07-24 至 2025-08-24",
+              "read_date": "2025-08-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-07",
+              "prev_reading": 688.0,
+              "reading": 696.0,
+              "usage": 8.0,
+              "fee": 17.52,
+              "total_fee": 17.52,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-06-24 至 2025-07-24",
+              "read_date": "2025-07-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-06",
+              "prev_reading": 696.0,
+              "reading": 708.0,
+              "usage": 12.0,
+              "fee": 26.28,
+              "total_fee": 26.28,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-05-24 至 2025-06-24",
+              "read_date": "2025-06-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-05",
+              "prev_reading": 708.0,
+              "reading": 722.0,
+              "usage": 14.0,
+              "fee": 30.66,
+              "total_fee": 30.66,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-04-24 至 2025-05-24",
+              "read_date": "2025-05-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-04",
+              "prev_reading": 722.0,
+              "reading": 738.0,
+              "usage": 16.0,
+              "fee": 35.04,
+              "total_fee": 35.04,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-03-24 至 2025-04-24",
+              "read_date": "2025-04-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-03",
+              "prev_reading": 738.0,
+              "reading": 757.0,
+              "usage": 19.0,
+              "fee": 41.61,
+              "total_fee": 41.61,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-02-24 至 2025-03-24",
+              "read_date": "2025-03-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-02",
+              "prev_reading": 757.0,
+              "reading": 780.0,
+              "usage": 23.0,
+              "fee": 50.37,
+              "total_fee": 50.37,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2025-01-24 至 2025-02-24",
+              "read_date": "2025-02-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2025-01",
+              "prev_reading": 780.0,
+              "reading": 806.0,
+              "usage": 26.0,
+              "fee": 56.94,
+              "total_fee": 56.94,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2024-12-24 至 2025-01-24",
+              "read_date": "2025-01-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2024-12",
+              "prev_reading": 806.0,
+              "reading": 827.0,
+              "usage": 21.0,
+              "fee": 45.99,
+              "total_fee": 45.99,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2024-11-24 至 2024-12-24",
+              "read_date": "2024-12-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2024-11",
+              "prev_reading": 827.0,
+              "reading": 842.0,
+              "usage": 15.0,
+              "fee": 32.85,
+              "total_fee": 32.85,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": "2024-10-24 至 2024-11-24",
+              "read_date": "2024-11-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            },
+            {
+              "month": "2024-10",
+              "prev_reading": 842.0,
+              "reading": 852.0,
+              "usage": 10.0,
+              "fee": 21.9,
+              "total_fee": 21.9,
+              "garbage_fee": null,
+              "penalty": null,
+              "status": "已缴费",
+              "bill_period": null,
+              "read_date": "2024-10-24",
+              "read_way": "远程",
+              "settled": null,
+              "estimated": false
+            }
+          ],
+          "payment_days": [
+            {
+              "date": "2026-10-01",
+              "at": "2026-10-01 00:59:41",
+              "gas": 45.99,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 53.99,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2026-09-01",
+              "at": "2026-09-01 00:59:41",
+              "gas": 13.14,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 21.14,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2026-08-01",
+              "at": "2026-08-01 00:59:41",
+              "gas": 17.52,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 25.52,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2026-07-01",
+              "at": "2026-07-01 00:59:41",
+              "gas": 24.09,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 32.09,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2026-06-01",
+              "at": "2026-06-01 00:59:41",
+              "gas": 32.85,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 40.85,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2026-05-01",
+              "at": "2026-05-01 00:59:41",
+              "gas": 39.42,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 47.42,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2026-04-01",
+              "at": "2026-04-01 00:59:41",
+              "gas": 43.8,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 51.8,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2026-03-01",
+              "at": "2026-03-01 00:59:41",
+              "gas": 52.56,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 60.56,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2026-02-01",
+              "at": "2026-02-01 00:59:41",
+              "gas": 59.13,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 67.13,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2026-01-01",
+              "at": "2026-01-01 00:59:41",
+              "gas": 48.18,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 56.18,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-12-01",
+              "at": "2025-12-01 00:59:41",
+              "gas": 37.23,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 45.23,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-11-01",
+              "at": "2025-11-01 00:59:41",
+              "gas": 19.71,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 27.71,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-10-01",
+              "at": "2025-10-01 00:59:41",
+              "gas": 13.14,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 21.14,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-09-01",
+              "at": "2025-09-01 00:59:41",
+              "gas": 10.95,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 18.95,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-08-01",
+              "at": "2025-08-01 00:59:41",
+              "gas": 17.52,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 25.52,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-07-01",
+              "at": "2025-07-01 00:59:41",
+              "gas": 26.28,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 34.28,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-06-01",
+              "at": "2025-06-01 00:59:41",
+              "gas": 30.66,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 38.66,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-05-01",
+              "at": "2025-05-01 00:59:41",
+              "gas": 35.04,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 43.04,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-04-01",
+              "at": "2025-04-01 00:59:41",
+              "gas": 41.61,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 49.61,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-03-01",
+              "at": "2025-03-01 00:59:41",
+              "gas": 50.37,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 58.37,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-02-01",
+              "at": "2025-02-01 00:59:41",
+              "gas": 56.94,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 64.94,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2025-01-01",
+              "at": "2025-01-01 00:59:41",
+              "gas": 45.99,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 53.99,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2024-12-01",
+              "at": "2024-12-01 00:59:41",
+              "gas": 32.85,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 40.85,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            },
+            {
+              "date": "2024-11-01",
+              "at": "2024-11-01 00:59:41",
+              "gas": 21.9,
+              "garbage": 8.0,
+              "penalty": 0.0,
+              "total": 29.9,
+              "channel": "第三方",
+              "settle": "支付宝代扣"
+            }
+          ],
+          "fee_items_by_month": {
+            "2026-09": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 45.99,
+                "price": 2.196,
+                "usage": 21.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2026-08": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 13.14,
+                "price": 2.196,
+                "usage": 6.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2026-07": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 17.52,
+                "price": 2.196,
+                "usage": 8.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2026-06": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 24.09,
+                "price": 2.196,
+                "usage": 11.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2026-05": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 32.85,
+                "price": 2.196,
+                "usage": 15.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2026-04": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 39.42,
+                "price": 2.196,
+                "usage": 18.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2026-03": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 43.8,
+                "price": 2.196,
+                "usage": 20.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2026-02": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 52.56,
+                "price": 2.196,
+                "usage": 24.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2026-01": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 59.13,
+                "price": 2.196,
+                "usage": 27.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-12": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 48.18,
+                "price": 2.196,
+                "usage": 22.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-11": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 37.23,
+                "price": 2.196,
+                "usage": 17.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-10": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 19.71,
+                "price": 2.196,
+                "usage": 9.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-09": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 13.14,
+                "price": 2.196,
+                "usage": 6.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-08": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 10.95,
+                "price": 2.196,
+                "usage": 5.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-07": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 17.52,
+                "price": 2.196,
+                "usage": 8.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-06": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 26.28,
+                "price": 2.196,
+                "usage": 12.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-05": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 30.66,
+                "price": 2.196,
+                "usage": 14.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-04": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 35.04,
+                "price": 2.196,
+                "usage": 16.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-03": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 41.61,
+                "price": 2.196,
+                "usage": 19.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-02": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 50.37,
+                "price": 2.196,
+                "usage": 23.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2025-01": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 56.94,
+                "price": 2.196,
+                "usage": 26.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2024-12": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 45.99,
+                "price": 2.196,
+                "usage": 21.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2024-11": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 32.85,
+                "price": 2.196,
+                "usage": 15.0,
+                "ladder": "第一档"
+              }
+            ],
+            "2024-10": [
+              {
+                "item": "燃气费",
+                "name": "",
+                "money": 21.9,
+                "price": 2.196,
+                "usage": 10.0,
+                "ladder": "第一档"
+              }
+            ]
+          },
+          "cache_updated_at": null,
+          "updated_at": "2026-11-03 10:39:32",
+          "last_pay_time": "2026-10-01",
+          "last_pay_at": "2026-10-01 00:59:41",
+          "last_pay_amount": 53.99,
+          "last_pay_gas": 45.99,
+          "last_pay_garbage": 8.0,
+          "last_pay_penalty": 0.0,
+          "records": 24
+        // DEMO_ATTRS_END
+      }
+    }
+  };
+
+  // 卡片元素由下面的 module 脚本注册，要等它定义完再喂数据，否则 setConfig 还不存在
+  const qs = new URLSearchParams(location.search);
+  if (qs.get("theme") === "dark") document.body.classList.add("dark");
+  if (qs.get("plain") === "1") document.body.classList.add("plain");
+  // 截图用: 整体缩放，让整张卡片放进一屏
+  const zoom = parseFloat(qs.get("zoom") || "");
+  if (zoom > 0) document.documentElement.style.zoom = String(zoom);
+
+  customElements.whenDefined("kaiyuan-gas-card").then(() => {
+    const card = document.getElementById("card");
+    card.setConfig({ entity: "sensor.kaiyuan_records", show_ladder: true });
+    card.hass = {
+      states,
+      callService: (d, s, data) => console.log("callService", d, s, data),
+    };
+    const view = qs.get("view");
+    if (view && view !== "main" && typeof card._go === "function") card._go(view);
+  });
+
+  document.getElementById("theme").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
+
+  // lit 需要从 HA 内置或 CDN 加载；纯离线打开时会拿不到，这里给个提示而不是空白
+  setTimeout(() => {
+    if (!customElements.get("kaiyuan-gas-card")) {
+      const tip = document.getElementById("tip");
+      if (tip) tip.hidden = false;
+    }
+  }, 3000);
+</script>
+<script type="module" src="./custom_components/kaiyuan_gas/www/kaiyuan-gas-card.js"></script>
+</body>
+</html>
