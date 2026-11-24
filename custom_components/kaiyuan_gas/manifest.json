@@ -1,6 +1,9 @@
 {
   "domain": "kaiyuan_gas",
   "name": "凯源燃气",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
   "codeowners": [
     "@ranqingwen"
   ],
